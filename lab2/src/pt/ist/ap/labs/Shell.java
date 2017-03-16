@@ -118,17 +118,21 @@ public class Shell {
 			System.out.print("Command:> ");
 			try {
 				parts = Arrays
-						.asList(in.nextLine().split("\\p{Space}"))
-						.stream()
+						.stream(in.nextLine().split("\\p{Space}"))
 						.filter(s -> !s.isEmpty())
 						.collect(Collectors.toList())
 						.toArray(new String[0]);
 			} catch (NoSuchElementException nsex) {
 				break;
 			}
-			
+
 			if (parts.length == 0)
 				continue;
+
+			if ("Exit".equals(parts[0])) {
+				System.out.println("Goodbye!");
+				break;
+			}
 			
 			if (parts.length == 2) {
 				if ("Class".equals(parts[0])) {
@@ -145,8 +149,6 @@ public class Shell {
 					ranCommand = true;
 				}
 			}
-			
-			System.out.println(parts.length);
 			
 			if (!ranCommand)
 				runMethodName(parts);
