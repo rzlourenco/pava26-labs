@@ -1,6 +1,6 @@
 <project name="lab1" default="compile" basedir=".">
     <property name="src" location="src" />
-    <property name="build" location="build" />
+    <property name="build" location="classes" />
 
     <target name="init">
         <tstamp />
