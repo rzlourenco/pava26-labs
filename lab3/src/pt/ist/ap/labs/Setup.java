@@ -7,6 +7,6 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface Test {
-    String[] value() default "*";
+public @interface Setup {
+    String value();
 }
